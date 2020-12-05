@@ -6,7 +6,7 @@ body
 .main{
     border: 2px solid black;
     margin: auto;
-    width:60%;
+    width:100%;
 }
 
 .header
@@ -128,8 +128,9 @@ body
 
 .rightpane
 {    
-    margin:15px;
+    margin-top:15px;
     padding-left: 20px;
+    padding-right: 15px;
     display: flex;
     flex-direction: column;
     justify-self: flex-end;
