@@ -1,0 +1,228 @@
+body
+{
+    background-color: black
+}
+
+.main{
+    border: 2px solid black;
+    margin: auto;
+    width:60%;
+}
+
+.header
+{
+    height:300px;
+    background-color:rgb(86, 86, 86) ;
+}
+
+#resumepicdiv
+{
+    background-color:rgb(86, 86, 86) ;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+#pic_background
+{
+    height: 150px;
+    width:150px;    
+    border-radius: 50%;
+    border:rgb(250, 190, 40) dotted 4px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pic
+{    
+    background-image: url(BrianDudey.jpg);
+    height: 150px;
+    width:150px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+}
+
+.namemaindiv
+{
+    
+     margin-top: -20px;
+     background-color: rgb(86, 86, 86) ;
+     display: flex;
+     height:100px;
+}
+
+#lsidenamediv
+{
+    width:25%;
+    background-color:  rgb(86, 86, 86);
+    justify-self: flex-start;
+    display: flex;
+    justify-content: center;
+}
+
+#name_border
+{
+    margin-bottom: 10px;
+    justify-self: center;
+    width:50%;
+    background-color:rgb(250, 190, 40);       
+    display: flex;    
+    justify-content:center;
+}
+
+#name
+{   
+    align-self: center;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+#rsidenamediv
+{
+    width:25%;
+    background-color:  rgb(86, 86, 86);
+    justify-self: flex-end;
+    display: flex;
+    justify-content: center;
+}
+
+.whitestrike
+{
+    align-self: center;
+    background-color: white;
+    height: 30%;
+    width:100%;
+}
+
+.content
+{
+    background-color: white;
+}
+
+#contactinfo
+{
+    padding-top: 7px;
+    text-align: center;
+}
+
+.infodiv
+{
+    display: flex;
+    width: 100%;
+}
+
+.leftpane
+{
+    margin-top:15px;
+    padding-left:25px;
+    padding-right: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width:50%;
+    height: 100%;
+    border-right: 1px solid rgb(86, 86, 86);
+}
+
+.rightpane
+{    
+    margin:15px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-end;
+    width:50%;
+    height:100%;
+}
+
+.profile_header,.skills_header, .workexperience1_header, .workexperience2_header, .education_header
+{
+    font-size: large;
+    font-weight: bold;
+    color: rgb(86, 86, 86) ;
+    padding-left: 50px;
+    height: 50px;
+}
+
+.slidecontainer
+{
+    border-radius: 4px;
+}
+
+#slider1, #slider2, #slider5, #slider6,#slider9, #slider11{
+    appearance: none;
+    outline:none;
+    width:90%;
+    height:6px;
+    background:linear-gradient(to right, #fcc139 80%, #f3efe7 20%);    
+    border: 1px solid f3efe7;
+}
+
+#slider3, #slider4{
+    appearance: none;
+    outline:none;
+    width:90%;
+    height:6px;
+    background:linear-gradient(to right, #fcc139 60%, #f3efe7 40%);
+    border: 1px solid f3efe7;
+}
+
+#slider7,#slider8,#slider10,#slider12{
+    appearance: none;
+    outline:none;
+    width:90%;
+    height:6px;
+    background:linear-gradient(to right, #fcc139 100%, #f3efe7 0%);
+    border: 1px solid f3efe7;
+}
+
+.slider::-webkit-slider-thumb
+{
+    appearance: none;
+    width:20px;
+    height: 20px;
+    background: #fff;
+    border: 2px solid #fcc139;
+    border-radius: 50%;
+    cursor:pointer
+}
+
+ul{
+    text-align: justify;
+}
+
+img
+{
+    height: 30px;
+    width: 30px;
+}
+
+h2{
+    padding-top: 5px;
+}
+
+.profile_header
+{
+    background-image: url(profile.png);
+    background-repeat: no-repeat;
+}
+
+.skills_header
+{
+    background-image: url(skills.PNG);
+    background-repeat: no-repeat;  
+}
+
+.workexperience1_header, .workexperience2_header
+{
+    background-image: url(experience.PNG);
+    background-repeat: no-repeat;  
+}
+
+.education_header
+{
+    background-image: url(education.PNG);
+    background-repeat: no-repeat;  
+}
