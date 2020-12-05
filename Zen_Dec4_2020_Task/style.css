@@ -37,7 +37,7 @@ body
 
 #pic
 {    
-    background-image: url(BrianDudey.jpg);
+    background-image: url(images/BrianDudey.jpg);
     height: 150px;
     width:150px;
     border-radius: 50%;
@@ -205,24 +205,24 @@ h2{
 
 .profile_header
 {
-    background-image: url(profile.png);
+    background-image: url(images/profile.png);
     background-repeat: no-repeat;
 }
 
 .skills_header
 {
-    background-image: url(skills.PNG);
+    background-image: url(images/skills.PNG);
     background-repeat: no-repeat;  
 }
 
 .workexperience1_header, .workexperience2_header
 {
-    background-image: url(experience.PNG);
+    background-image: url(images/experience.PNG);
     background-repeat: no-repeat;  
 }
 
 .education_header
 {
-    background-image: url(education.PNG);
+    background-image: url(images/education.PNG);
     background-repeat: no-repeat;  
 }
