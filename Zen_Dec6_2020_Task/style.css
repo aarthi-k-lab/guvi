@@ -1,0 +1,53 @@
+.top_tag
+{
+    position: relative;
+    height: 100px;
+    width: 100px;
+    background: rgb(153, 11, 11);
+    border: 1px solid black;
+    border-right-width: 0px;
+    color: white;
+    padding-left: 4px;
+}
+
+.top_tag:after{
+    position: absolute;
+    content: '';
+    right: -25px;
+    top: -1px;
+    height: 24px;
+    width: 30px;
+    background: rgb(153, 11, 11);
+    border: 1px solid black;
+    z-index: -1;
+    -webkit-transform: skew(20deg);
+    -moz-transform: skew(20deg);
+    transform: skew(20deg);
+}
+
+.pictag
+{
+    padding-right: 20px;
+    top:15px;
+}
+
+.pictag::after{
+    width:35px;
+    z-index: 1;
+    border-left-width: 0px;
+}
+
+.redhighlight
+{
+    color:red;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+    padding-top:10px;
+    text-align: center;
+}
+
+footer
+{
+    border-top:2px solid black;
+    padding-bottom: 15px;
+}
