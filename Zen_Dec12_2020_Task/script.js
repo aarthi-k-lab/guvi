@@ -33,7 +33,9 @@ name_border.appendChild(namediv);
 
 let rsidenamediv=document.createElement("div");
 rsidenamediv.setAttribute("id","rsidenamediv");
-rsidenamediv.appendChild(whitestrike);
+let whitestrike1=document.createElement("div");
+whitestrike1.setAttribute("class","whitestrike");
+rsidenamediv.appendChild(whitestrike1);
 namemaindiv.append(lsidenamediv,name_border,rsidenamediv);
 
 headerdiv.append(resumepicdiv,namemaindiv);
