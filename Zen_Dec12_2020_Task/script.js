@@ -372,7 +372,7 @@ let tdeducationtable2=document.createElement("td");
 tdeducationtable2.colSpan="2";
 tdeducationtable2.innerText="Thinkful Chicago, IL";
 treducationtable2.appendChild(tdeducationtable2);
-wrkexp2_table.append(treducationtable1,treducationtable2);
+education_table.append(treducationtable1,treducationtable2);
 let educationp=document.createElement("p");
 educationp.innerText="Project-focused intensive program with emphasis on Mongo, Express, React, and JavaScript (MERN) technicalstack.";
 let educationul=document.createElement("ul");
