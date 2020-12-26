@@ -58,5 +58,5 @@ function displayTemp(latlng)
     let apikey="3c254b719958d7d9ec662f90276c3bf0";
     let data1=fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lng+"&exclude=alerts&appid="+apikey);
     data1.then((response)=> response.json())
-    .then(result=>console.log("The temperature here is "+result.current.temp));
+    .then(result=>alert("The temperature here is "+result.current.temp));
 }   
