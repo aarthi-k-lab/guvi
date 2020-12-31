@@ -1,4 +1,13 @@
 body{
     text-align: justify;
-    background-color:aquamarine
+    background-color:aquamarine;
+}
+
+#timer
+{
+    text-align: center;
+    text-transform: uppercase;
+    font-size:xx-large;
+    color:rgb(190, 23, 93);
+    padding:200px;
 }

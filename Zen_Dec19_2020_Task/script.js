@@ -1,24 +1,26 @@
-function getData(callback){
-    let request=new XMLHttpRequest();
-    request.open("GET","https://restcountries.eu/rest/v2/all");
-    request.send();
-    request.onload=function()
-    {
-        let data=JSON.parse(request.responseText);
-        console.log(data);
-        data.forEach((item)=> {
-            let name=item.name;
-            callback(name);
-        })
+var i=10;
+var variable;
+function display(cb){
+    setTimeout(cb,11000);
+    variable=setInterval(mytimer,1000);    
+}
+
+function mytimer(){
+    document.getElementById("timer").innerText =i;
+    i--;
+    if(i===0){
+        stop();
     }
 }
 
-function displaydata(name){
-    let body=document.body;
-     li+=`<li>${name}</li>`;
-    body.innerHTML=li;
+function stop(){
+    clearInterval(variable);
 }
-let li='<h1>Callback Function</h1>';
-getData(displaydata);
 
 
+function independence() {
+    document.getElementById("timer").innerText ="Happy Independence Day!!!!!!";
+
+}
+
+display(independence);
