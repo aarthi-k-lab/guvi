@@ -8,7 +8,6 @@ async function getData() {
     let resp=await fetch(opentriviaurl);
     let respjson = await resp.json();
     let questionanswer=await respjson.results[i];
-    console.log(questionanswer);
     return questionanswer;
     
 }
@@ -33,7 +32,6 @@ function setValue(ele) {
     opt4span.innerText="D "; 
     value=ele.value;
     ele.innerHTML="<span class='opt'>✓ </span>"+value;
-    console.log(value);
 }
 
 function getNextQuestion()
@@ -176,7 +174,6 @@ questiondiv.setAttribute("class","questiondiv container");
 let question=document.createElement("div");
 question.setAttribute("class","question container");
 let data=await getData();
-console.log(data.question);
 question.innerText=data.question;
 
 let answer=document.createElement("div");
