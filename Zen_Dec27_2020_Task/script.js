@@ -29,8 +29,8 @@ var lodashFun = /** @class */ (function () {
     return lodashFun;
 }());
 var lodashobj = new lodashFun();
-console.log(lodashobj.chunkfun([1, 2, 3, 4, 5], 2));
-console.log(lodashobj.reducefun([1, 2, 3, 4, 5], 0));
-console.log(lodashobj.filterfun([18, 12, 23, 14, 35], 18));
-console.log(lodashobj.findfun([1, 2, 3, 4, 5], 2));
-console.log(lodashobj.somefun([1, 2, 3, 4, 5]));
+console.log("Chunk Function: " + lodashobj.chunkfun([1, 2, 3, 4, 5], 2));
+console.log("Reduce Function: " + lodashobj.reducefun([1, 2, 3, 4, 5], 0));
+console.log("Filter Function: " + lodashobj.filterfun([18, 12, 23, 14, 35], 18));
+console.log("Find Function: " + lodashobj.findfun([1, 2, 3, 4, 5], 2));
+console.log("Some function: " + lodashobj.somefun([1, 2, 3, 4, 5]));
