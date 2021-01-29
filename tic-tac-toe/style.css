@@ -1,0 +1,244 @@
+body{
+
+    background-color:#0a0710;
+    background-image:url("tictactoe2.jfif");
+    color:white;
+}
+
+#titleMultiPlayer,#playerinfo,#toPlay,#tictactoetitle,.modeclass,#titleSinglePlayer
+{
+    text-align: center;
+    padding:5px;
+}
+
+#difficultLevelDiv,#playerToStartDiv{
+  text-align: center;
+}
+
+#playerinfo{
+    font-size:20px;
+    font-weight:500;
+}
+
+#toPlay{
+    font-size:20px;
+    font-weight:500;
+}
+
+#playarea,#singleplayerdiv,#multiplayerdiv
+{
+    display:flex;
+    justify-content: center;
+}
+
+
+
+#playarea button{
+    height:140px;
+    background-color:#1a1329;
+    border: 1px solid #0d0718;
+    font-size:35px;
+    font-weight:500;
+    color:white;
+}
+
+#multiplayertictac,#singleplayertictac{
+  width:60%;
+  border: 3px solid #00bc8c;
+  background-color: #383e4e;
+  align-self: center;
+  border-radius:15px; 
+  margin-top:15px;
+  margin-bottom:15px;
+}
+
+#tictactoemain
+{
+  padding-bottom:30px;
+  width:70%;
+  border: 3px solid #00bc8c;
+  background-color: #383e4e;
+  border-radius:15px;
+  height: 70%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+
+#newgame,#homediv{
+     display: flex;
+     justify-content:center;
+     margin:5px;     
+     
+ }
+#homebtn,#newgamebtn{
+    background-color: #00bc8c;
+    border: 1px solid #0a0710;
+}
+
+#homebtn:hover,#newgamebtn:hover, #singleplayerbtn:hover,#multiplayerbtn:hover{
+    background-color: #c11dd4;
+    cursor: pointer;
+}
+
+option{
+  background-color: white;
+  color:black;
+}
+
+#difficultLevel,#playerToStart{
+  background-color: #00bc8c;
+  color:white;
+  margin:5px;
+}
+
+.strikethroughhori{
+    position: relative;
+  }
+  .strikethroughhori:before {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-bottom: 5px solid #c11dd4;
+    width: 100%;
+  }
+
+  .strikethroughvert {
+    width: 50px;
+    text-align: center; 
+    position : relative;
+  }
+  
+  .strikethroughvert:before { 
+    position: absolute;
+    content : "";
+    left  : 50%;
+    top   : 0;
+    height: 100%;
+    width : 0;
+    border-right: 5px solid #c11dd4;
+  
+  }
+
+  .strikethroughdiag {
+    position: relative;
+  }
+  .strikethroughdiag:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 50%;
+    right: 0;
+    border-top: 5px solid #c11dd4;
+  
+    -webkit-transform:rotate(-25deg);
+    -moz-transform:rotate(-25deg);
+    -ms-transform:rotate(-25deg);
+    -o-transform:rotate(-25deg);
+    transform:rotate(-25deg);
+  }
+
+  .strikethroughdiag2 {
+    position: relative;
+  }
+  .strikethroughdiag2:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 50%;
+    right: 0;
+    border-top: 5px solid #c11dd4;
+  
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-155deg);
+  }
+ 
+
+  #singleplayerbtn,#multiplayerbtn{
+  display: block;
+  width: 300px;
+  color: white;
+  background-color: #00bc8c;
+  border-radius: 10px;
+  text-align: center;
+  margin: auto;
+  margin-top: 50px;
+  height: 50px;
+  }
+
+  #modediv{
+    font-size:30px;
+  }
+
+  #tictactoetitle{
+    margin:35px;
+
+  }
+
+
+  @media (max-height:635px) { 
+    #tictactoemain
+  {
+    width: 50%;
+    height: 90%;
+  }
+  }
+  
+  @media (min-width: 768px) { 
+      #playarea button{
+       margin:2px;   
+       height:150px;  
+      }
+      
+      #tictactoemain
+      {
+        width: 70%;
+      }
+   }
+  
+   @media(min-width: 577px){
+    #multiplayertictac,#singleplayertictac
+    {
+      left:25%;
+    }
+  
+    #tictactoemain
+    {
+      width: 100%;
+    }
+  
+   }
+  
+  @media (max-width: 576px) { 
+      #playarea button{
+       margin:2px;  
+       height:100px;   
+      }
+  
+      #multiplayertictac,#singleplayertictac{
+        width:100%;
+      }
+  
+      #tictactoemain
+      {
+        width: 100%;
+      }
+  
+      #tictactoetitle
+      {
+        font-size:20px;
+        padding:0px;
+      }
+  
+      #modediv{
+        font-size:15px;
+      }
+  
+   }
+  
