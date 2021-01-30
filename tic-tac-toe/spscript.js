@@ -62,8 +62,11 @@ function play(element){
             difArr.splice(deldifNo,1);
             humArr.push(eleNum);
             humArr.sort(function(a, b){return a - b});
+            
+            console.log(arr,difArr,botArr,humArr);
             if(start)
             {
+                start=false;
                 let cellNo;
                 if(cell5.disabled==true)
                 {
@@ -73,34 +76,38 @@ function play(element){
                 else{
                     cellNo=5; 
                 }
+                
+                let ele=document.getElementsByName(cellNo)[0];
+                ele=document.getElementsByName(cellNo)[0];
+                ele.innerText=playerToPlay;
+                ele.disabled=true;
+                ele.flag=true;
+                flag=findMatch(); 
+                if(!flag){
+                playerToPlay=(playerToPlay=='O')?'X':'O';              
+                spanToPlayName.innerText=playerToPlay;               
                 arr.splice(arr.indexOf(cellNo),1);
                 difArr.splice(difArr.indexOf(cellNo),1);   
                 botArr.push(cellNo);
                 botArr.sort(function(a, b){return a - b});
-                let ele=document.getElementsByName(cellNo)[0];
-                ele=document.getElementsByName(cellNo)[0];
-                ele.innerText=playerToPlay;
-                playerToPlay=(playerToPlay=='O')?'X':'O';
-                ele.disabled=true;
-                spanToPlayName.innerText=playerToPlay;
-                ele.flag=true;
-                start=false;
+                }
             }
 
             else if((cellNo=chanceToWin())!=null){
                 ele=document.getElementsByName(cellNo)[0];
                 ele.innerText=playerToPlay; 
                 ele.disabled=true;
-                spanToPlayName.innerText=playerToPlay;
                 ele.flag=true; 
+                flag=findMatch(); 
+                if(!flag)            
+                { 
+                playerToPlay=(playerToPlay=='O')?'X':'O';                
+                spanToPlayName.innerText=playerToPlay;
+                arr.splice(arr.indexOf(cellNo),1);
+                difArr.splice(difArr.indexOf(cellNo),1);
                 botArr.push(cellNo); 
-                botArr.sort(function(a, b){return a - b});
-                let delno=arr.indexOf(eleNum);
-                let deldifNo=difArr.indexOf(eleNum);
-                arr.splice(delno,1);
-                difArr.splice(deldifNo,1);    
-                flag=findMatch();                  
-                playerToPlay=(playerToPlay=='O')?'X':'O';
+                botArr.sort(function(a, b){return a - b});                  
+                }
             }
 
             
@@ -108,35 +115,38 @@ function play(element){
             {
                 ele=document.getElementsByName(cellNo)[0];
                 ele.innerText=playerToPlay; 
-                
                 ele.disabled=true;
-                spanToPlayName.innerText=playerToPlay;
-                ele.flag=true;
-                botArr.push(cellNo); 
-                botArr.sort(function(a, b){return a - b});
-                let delno=arr.indexOf(cellNo);
-                let deldifNo=difArr.indexOf(cellNo);
-                arr.splice(delno,1);
-                difArr.splice(deldifNo,1);
-                flag=findMatch();
-                playerToPlay=(playerToPlay=='O')?'X':'O';
+                ele.flag=true; 
+                flag=findMatch(); 
+                if(!flag)            
+                { 
+                    playerToPlay=(playerToPlay=='O')?'X':'O';                
+                    spanToPlayName.innerText=playerToPlay;
+                    arr.splice(arr.indexOf(cellNo),1);
+                    difArr.splice(difArr.indexOf(cellNo),1);
+                    botArr.push(cellNo); 
+                    botArr.sort(function(a, b){return a - b});   
+                    
+                }
                 
             }
 
             else {
                 var cell = Math.floor(Math.random() * (arr.length)-1)+1;
                 let cellNo=arr.splice(cell-1,1);  
-                difArr.splice(difArr.indexOf(cellNo),1)    
-                botArr.push(cellNo);
-                botArr.sort(function(a, b){return a - b});
+                difArr.splice(difArr.indexOf(cellNo),1); 
                 let ele=document.getElementsByName(cellNo)[0];
-                ele=document.getElementsByName(cellNo)[0];
                 ele.innerText=playerToPlay;     
                 ele.disabled=true;
                 ele.flag=true;
-                spanToPlayName.innerText=playerToPlay;
                 flag=findMatch();
-                playerToPlay=(playerToPlay=='O')?'X':'O';
+                if(!flag)            
+                {
+                playerToPlay=(playerToPlay=='O')?'X':'O';                
+                spanToPlayName.innerText=playerToPlay;
+                botArr.push(cellNo);
+                botArr.sort(function(a, b){return a - b});
+                }
             }
         }
     }       
@@ -144,14 +154,12 @@ function play(element){
 
 
 function chanceToWin(){
-    let opponentwinflag=false;
+    let winflag=false;
     if(botArr.length>=2)
     {
         for(let i=0;i<arr.length;i++)
         {
             botArr.push(arr[i]);
-            let sortArr=[...botArr];
-            sortArr.sort(function(a, b){return a - b});
             const getAllSubsets = 
             theArray => theArray.reduce(
               (subsets, value) => subsets.concat(
@@ -170,12 +178,12 @@ function chanceToWin(){
                 if(contains)
                 {
                     botArr.pop();
-                    opponentwinflag=true;                    
+                    winflag=true;                    
                 }
                 }
             
             }); 
-        if(opponentwinflag)return arr[i];      
+        if(winflag)return arr[i];      
         botArr.pop();
         }
     }
@@ -254,9 +262,9 @@ function changePlayerToStart() {
                 let ele=document.getElementsByName(cellNo)[0];
                 ele=document.getElementsByName(cellNo)[0];
                 ele.innerText=playerToPlay;
-                playerToPlay=(playerToPlay=='O')?'X':'O';
-                ele.disabled=true;
+                playerToPlay=(playerToPlay=='O')?'X':'O';                
                 spanToPlayName.innerText=playerToPlay;
+                ele.disabled=true;
                 ele.flag=true;
                 start=false;
         }
