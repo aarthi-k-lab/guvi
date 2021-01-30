@@ -76,130 +76,68 @@ function play(element){
                 else{
                     cellNo=5; 
                 }
-                
-                let ele=document.getElementsByName(cellNo)[0];
-                ele=document.getElementsByName(cellNo)[0];
-                ele.innerText=playerToPlay;
-                ele.disabled=true;
-                ele.flag=true;
-                flag=findMatch(); 
-                if(!flag){
-                playerToPlay=(playerToPlay=='O')?'X':'O';              
-                spanToPlayName.innerText=playerToPlay;               
+                makeMove(cellNo);                
                 arr.splice(arr.indexOf(cellNo),1);
-                difArr.splice(difArr.indexOf(cellNo),1);   
-                botArr.push(cellNo);
-                botArr.sort(function(a, b){return a - b});
-                }
+                difArr.splice(difArr.indexOf(cellNo),1); 
             }
 
             else if((cellNo=chanceToWin())!=null){
-                ele=document.getElementsByName(cellNo)[0];
-                ele.innerText=playerToPlay; 
-                ele.disabled=true;
-                ele.flag=true; 
-                flag=findMatch(); 
-                if(!flag)            
-                { 
-                playerToPlay=(playerToPlay=='O')?'X':'O';                
-                spanToPlayName.innerText=playerToPlay;
+                makeMove(cellNo);
                 arr.splice(arr.indexOf(cellNo),1);
                 difArr.splice(difArr.indexOf(cellNo),1);
-                botArr.push(cellNo); 
-                botArr.sort(function(a, b){return a - b});                  
-                }
             }
 
             
             else if((cellNo=opponentChanceToWin())!==null)
             {
-                ele=document.getElementsByName(cellNo)[0];
-                ele.innerText=playerToPlay; 
-                ele.disabled=true;
-                ele.flag=true; 
-                flag=findMatch(); 
-                if(!flag)            
-                { 
-                    playerToPlay=(playerToPlay=='O')?'X':'O';                
-                    spanToPlayName.innerText=playerToPlay;
-                    arr.splice(arr.indexOf(cellNo),1);
-                    difArr.splice(difArr.indexOf(cellNo),1);
-                    botArr.push(cellNo); 
-                    botArr.sort(function(a, b){return a - b});   
-                    
-                }
-                
+                makeMove(cellNo);   
+                arr.splice(arr.indexOf(cellNo),1);
+                difArr.splice(difArr.indexOf(cellNo),1);             
             }
 
             else {
                 var cell = Math.floor(Math.random() * (arr.length)-1)+1;
                 let cellNo=arr.splice(cell-1,1);  
                 difArr.splice(difArr.indexOf(cellNo),1); 
-                let ele=document.getElementsByName(cellNo)[0];
-                ele.innerText=playerToPlay;     
-                ele.disabled=true;
-                ele.flag=true;
-                flag=findMatch();
-                if(!flag)            
-                {
-                playerToPlay=(playerToPlay=='O')?'X':'O';                
-                spanToPlayName.innerText=playerToPlay;
-                botArr.push(cellNo);
-                botArr.sort(function(a, b){return a - b});
-                }
+                makeMove(cellNo);
             }
         }
     }       
 }
 
+function makeMove(cellNo)
+{
+    ele=document.getElementsByName(cellNo)[0];
+    ele.innerText=playerToPlay; 
+    ele.disabled=true;
+    ele.flag=true; 
+    flag=findMatch(); 
+    if(!flag)            
+    { 
+        playerToPlay=(playerToPlay=='O')?'X':'O';                
+        spanToPlayName.innerText=playerToPlay;        
+        botArr.push(cellNo); 
+        botArr.sort(function(a, b){return a - b});   
+        
+    }
+}
 
 function chanceToWin(){
-    let winflag=false;
-    if(botArr.length>=2)
-    {
-        for(let i=0;i<arr.length;i++)
-        {
-            botArr.push(arr[i]);
-            const getAllSubsets = 
-            theArray => theArray.reduce(
-              (subsets, value) => subsets.concat(
-               subsets.map(set => [value,...set])
-              ),
-              [[]]
-            );
-            
-            let subsetArr=getAllSubsets(botArr);
-            subsetArr.forEach(item => {
-                if(item.length==3){
-                item.sort(function(a, b){return a - b});
-                let contains = matching.some(elem =>{
-                    return JSON.stringify(item) === JSON.stringify(elem);
-                  });
-                if(contains)
-                {
-                    botArr.pop();
-                    winflag=true;                    
-                }
-                }
-            
-            }); 
-        if(winflag)return arr[i];      
-        botArr.pop();
-        }
-    }
-    
-    return null;
+    return checkchanceToWin(botArr);
 }
 
 function opponentChanceToWin(){
-    let opponentwinflag=false;
-    if(humArr.length>=2)
+    return checkchanceToWin(humArr);
+}
+
+function checkchanceToWin(array)
+{
+    let flag=false;
+    if(array.length>=2)
     {
         for(let i=0;i<arr.length;i++)
         {
-            humArr.push(arr[i]);
-            let sortArr=[...humArr];
-            sortArr.sort(function(a, b){return a - b});
+            array.push(arr[i]);
             const getAllSubsets = 
             theArray => theArray.reduce(
               (subsets, value) => subsets.concat(
@@ -208,7 +146,7 @@ function opponentChanceToWin(){
               [[]]
             );
             
-            let subsetArr=getAllSubsets(humArr);
+            let subsetArr=getAllSubsets(array);
             subsetArr.forEach(item => {
                 if(item.length==3){
                 item.sort(function(a, b){return a - b});
@@ -217,14 +155,14 @@ function opponentChanceToWin(){
                   });
                 if(contains)
                 {
-                    humArr.pop();
-                    opponentwinflag=true;                    
+                    array.pop();
+                    flag=true;                    
                 }
                 }
             
             }); 
-        if(opponentwinflag)return arr[i];      
-        humArr.pop();
+        if(flag)return arr[i];      
+        array.pop();
         }
     }
     
@@ -252,21 +190,12 @@ function changePlayerToStart() {
         disable();
         }
         else{
-                let cellNo;
-                var cell = Math.floor(Math.random() * (difArr.length)-1);
-                cellNo=difArr.splice(cell,1)[0]; 
-                arr.splice(arr.indexOf(cellNo),1);
-                difArr.splice(difArr.indexOf(cellNo),1);   
-                botArr.push(cellNo);
-                botArr.sort(function(a, b){return a - b});
-                let ele=document.getElementsByName(cellNo)[0];
-                ele=document.getElementsByName(cellNo)[0];
-                ele.innerText=playerToPlay;
-                playerToPlay=(playerToPlay=='O')?'X':'O';                
-                spanToPlayName.innerText=playerToPlay;
-                ele.disabled=true;
-                ele.flag=true;
-                start=false;
+            start=false;
+            let cellNo;
+            var cell = Math.floor(Math.random() * (difArr.length)-1);
+            cellNo=difArr.splice(cell,1)[0]; 
+            arr.splice(arr.indexOf(cellNo),1);
+            makeMove(cellNo);               
         }
     }
 }
